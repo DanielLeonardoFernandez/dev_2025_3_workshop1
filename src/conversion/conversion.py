@@ -37,32 +37,19 @@ class Conversion:
         
         Args:
             metros (float): Distancia en metros
-            
         Returns:
             float: Distancia en pies
-            
         Factor: 1 metro = 3.28084 pies
-        
         Ejemplo:
             metros_a_pies(1) -> 3.28084
         """
+        pies = metros * 3.28084
+        return pies
         pass
     
     def pies_a_metros(self, pies):
-        """
-        Convierte distancia de pies a metros.
-        
-        Args:
-            pies (float): Distancia en pies
-            
-        Returns:
-            float: Distancia en metros
-            
-        Factor: 1 pie = 0.3048 metros
-        
-        Ejemplo:
-            pies_a_metros(3.28084) -> 1.0
-        """
+        metros = pies * 0.3048
+        return metros
         pass
     
     def decimal_a_binario(self, decimal):
