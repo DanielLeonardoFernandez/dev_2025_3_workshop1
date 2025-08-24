@@ -1,20 +1,23 @@
 class Games:
     def piedra_papel_tijera(self, jugador1, jugador2):
-        """
-        Determina el ganador del juego piedra, papel o tijera.
+        jugador1 = jugador1.lower()
+        jugador2 = jugador2.lower()
         
-        Args:
-            jugador1 (str): Elección del jugador 1 ("piedra", "papel", "tijera")
-            jugador2 (str): Elección del jugador 2 ("piedra", "papel", "tijera")
-            
-        Returns:
-            str: "jugador1", "jugador2" o "empate"
-            
-        Reglas:
-            - Piedra vence a tijera
-            - Tijera vence a papel
-            - Papel vence a piedra
-        """
+        opciones_validas = {"piedra", "papel", "tijera"}
+        if jugador1 not in opciones_validas:
+            raise ValueError(f"Elección inválida para jugador1: {jugador1}")
+        if jugador2 not in opciones_validas:
+            raise ValueError(f"Elección inválida para jugador2: {jugador2}")
+        
+        if jugador1 == jugador2:
+            return "empate"
+        
+        if (jugador1 == "piedra" and jugador2 == "tijera") or \
+           (jugador1 == "tijera" and jugador2 == "papel") or \
+           (jugador1 == "papel" and jugador2 == "piedra"):
+            return "jugador1"
+        else:
+            return "jugador2"
         pass
     
     def adivinar_numero_pista(self, numero_secreto, intento):
