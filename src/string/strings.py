@@ -40,11 +40,22 @@ class Strings:
         pass
     
     def palabras_mayus(self, texto):
-        return ' '.join(palabra.capitalize() for palabra in texto.split())
+        palabras = texto.split(' ')
+        return ' '.join(palabra.capitalize() if palabra else '' for palabra in palabras)
         pass
     
     def eliminar_espacios_duplicados(self, texto):
-        return ' '.join(texto.split())
+        resultado = []
+        en_espacio = False
+        for c in texto:
+            if c == ' ':
+                if not en_espacio:
+                    resultado.append(c)
+                    en_espacio = True
+            else:
+                resultado.append(c)
+                en_espacio = False
+        return ''.join(resultado)
         pass
     
     def es_numero_entero(self, texto):
