@@ -24,10 +24,17 @@ class Data:
     def eliminar_duplicados(self, lista):
         lista_sin_duplicados = []
         
-        # Recorremos cada elemento de la lista original
         for elemento in lista:
-            # Si el elemento no está en la nueva lista, lo agregamos
-            if elemento not in lista_sin_duplicados:
+            encontrado = False
+            for elem_existente in lista_sin_duplicados:
+                if elem_existente is elemento:  
+                    encontrado = True
+                    break
+                if type(elem_existente) == type(elemento) and elem_existente == elemento:
+                    encontrado = True
+                    break
+            
+            if not encontrado:
                 lista_sin_duplicados.append(elemento)
         
         return lista_sin_duplicados
