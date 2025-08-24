@@ -120,37 +120,57 @@ class Magic:
         pass
     
     def suma_digitos(self, n):
-        """
-        Calcula la suma de los dígitos de un número.
-        
-        Args:
-            n (int): Número para sumar sus dígitos
-            
-        Returns:
-            int: La suma de los dígitos de n
-        """
+        suma = 0
+        numero = abs(n)  # Manejar números negativos
+        while numero > 0:
+            suma += numero % 10
+            numero //= 10
+        return suma
         pass
     
     def es_numero_armstrong(self, n):
-        """
-        Verifica si un número es de Armstrong (igual a la suma de sus dígitos elevados a la potencia del número de dígitos).
+        if n < 0:
+            return False
         
-        Args:
-            n (int): Número a verificar
-            
-        Returns:
-            bool: True si n es un número de Armstrong, False en caso contrario
-        """
+        digitos = [int(d) for d in str(n)]
+        num_digitos = len(digitos)
+        suma = sum(d ** num_digitos for d in digitos)
+        return suma == n
         pass
     
     def es_cuadrado_magico(self, matriz):
-        """
-        Verifica si una matriz es un cuadrado mágico (suma igual en filas, columnas y diagonales).
+        if not matriz:
+            return False
         
-        Args:
-            matriz (list): Lista de listas que representa una matriz cuadrada
-            
-        Returns:
-            bool: True si es un cuadrado mágico, False en caso contrario
-        """
+        n = len(matriz)
+        # Verificar que sea cuadrada
+        for fila in matriz:
+            if len(fila) != n:
+                return False
+        
+        # Calcular suma mágica (suma de la primera fila)
+        suma_magica = sum(matriz[0])
+        
+        # Verificar filas
+        for fila in matriz:
+            if sum(fila) != suma_magica:
+                return False
+        
+        # Verificar columnas
+        for j in range(n):
+            suma_columna = sum(matriz[i][j] for i in range(n))
+            if suma_columna != suma_magica:
+                return False
+        
+        # Verificar diagonal principal
+        suma_diag_principal = sum(matriz[i][i] for i in range(n))
+        if suma_diag_principal != suma_magica:
+            return False
+        
+        # Verificar diagonal secundaria
+        suma_diag_secundaria = sum(matriz[i][n-1-i] for i in range(n))
+        if suma_diag_secundaria != suma_magica:
+            return False
+        
+        return True
         pass
