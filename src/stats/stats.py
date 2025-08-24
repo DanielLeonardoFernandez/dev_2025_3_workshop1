@@ -29,48 +29,22 @@ class Stats:
         pass
     
     def desviacion_estandar(self, numeros):
-        """
-        Calcula la desviación estándar de una lista de números.
-        Usa la fórmula de desviación estándar poblacional.
-        
-        Args:
-            numeros (list): Lista de números
-            
-        Returns:
-            float: La desviación estándar
-            
-        Ejemplo:
-            desviacion_estandar([1, 2, 3, 4, 5]) -> 1.41...
-        """
+        if len(numeros) < 2:
+            return 0
+        media = sum(numeros) / len(numeros)
+        suma_cuadrados = sum((x - media) ** 2 for x in numeros)
+        return (suma_cuadrados / len(numeros)) ** 0.5
         pass
     
     def varianza(self, numeros):
-        """
-        Calcula la varianza de una lista de números.
-        La varianza es el cuadrado de la desviación estándar.
-        
-        Args:
-            numeros (list): Lista de números
-            
-        Returns:
-            float: La varianza
-            
-        Ejemplo:
-            varianza([1, 2, 3, 4, 5]) -> 2.0
-        """
+        if len(numeros) < 2:
+            return 0
+        media = sum(numeros) / len(numeros)
+        return sum((x - media) ** 2 for x in numeros) / len(numeros)
         pass
     
     def rango(self, numeros):
-        """
-        Calcula el rango (diferencia entre el valor máximo y mínimo).
-        
-        Args:
-            numeros (list): Lista de números
-            
-        Returns:
-            number: La diferencia entre max y min
-            
-        Ejemplo:
-            rango([1, 5, 3, 9, 2]) -> 8
-        """
+        if not numeros:
+            return 0
+        return max(numeros) - min(numeros)
         pass
