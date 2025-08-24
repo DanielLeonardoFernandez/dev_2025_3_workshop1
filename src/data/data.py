@@ -87,16 +87,20 @@ class Data:
         pass
     
     def es_subconjunto(self, conjunto1, conjunto2):
-        """
-        Verifica si conjunto1 es subconjunto de conjunto2 sin usar set.
+        if not conjunto1:
+            return True
         
-        Args:
-            conjunto1 (list): Posible subconjunto
-            conjunto2 (list): Conjunto principal
+        for elemento in conjunto1:
+            encontrado = False
+            for elem_conjunto2 in conjunto2:
+                if elem_conjunto2 == elemento:
+                    encontrado = True
+                    break
             
-        Returns:
-            bool: True si conjunto1 es subconjunto de conjunto2, False en caso contrario
-        """
+            if not encontrado:
+                return False
+        
+        return True
         pass
     
     def implementar_pila(self):
