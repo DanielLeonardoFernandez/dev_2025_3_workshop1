@@ -57,40 +57,27 @@ class Strings:
         pass
     
     def cifrar_cesar(self, texto, desplazamiento):
-        """
-        Aplica el cifrado César a una cadena de texto.
-        
-        Args:
-            texto (str): Cadena a cifrar
-            desplazamiento (int): Número de posiciones a desplazar cada letra
-            
-        Returns:
-            str: Cadena cifrada
-        """
+        resultado = ""
+        for c in texto:
+            if c.isalpha():
+                base = ord('A') if c.isupper() else ord('a')
+                resultado += chr((ord(c) - base + desplazamiento) % 26 + base)
+            else:
+                resultado += c
+        return resultado
         pass
     
     def descifrar_cesar(self, texto, desplazamiento):
-        """
-        Descifra una cadena cifrada con el método César.
-        
-        Args:
-            texto (str): Cadena cifrada
-            desplazamiento (int): Número de posiciones que se desplazó cada letra
-            
-        Returns:
-            str: Cadena descifrada
-        """
+        return self.cifrar_cesar(texto, -desplazamiento)
         pass
     
     def encontrar_subcadena(self, texto, subcadena):
-        """
-        Encuentra todas las posiciones de una subcadena en un texto sin usar find() o index().
-        
-        Args:
-            texto (str): Cadena principal
-            subcadena (str): Subcadena a buscar
-            
-        Returns:
-            list: Lista con las posiciones iniciales de cada ocurrencia
-        """
+        if not subcadena:
+            return []
+        posiciones = []
+        len_sub = len(subcadena)
+        for i in range(len(texto) - len_sub + 1):
+            if texto[i:i+len_sub] == subcadena:
+                posiciones.append(i)
+        return posiciones
         pass
