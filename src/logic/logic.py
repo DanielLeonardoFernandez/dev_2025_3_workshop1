@@ -28,42 +28,15 @@ class Logica:
         pass
     
     def XNOR(self, a, b):
-        """
-        Implementa la operación lógica XNOR (NOT XOR).
-        
-        Args:
-            a (bool): Primer valor booleano
-            b (bool): Segundo valor booleano
-            
-        Returns:
-            bool: Resultado de a XNOR b
-        """
+        return not self.XOR(a, b)
         pass
     
     def implicacion(self, a, b):
-        """
-        Implementa la operación lógica de implicación (a -> b).
-        
-        Args:
-            a (bool): Primer valor booleano (antecedente)
-            b (bool): Segundo valor booleano (consecuente)
-            
-        Returns:
-            bool: Resultado de la implicación
-        """
+        return not a or b
         pass
     
     def bi_implicacion(self, a, b):
-        """
-        Implementa la operación lógica de bi-implicación (a <-> b).
-        
-        Args:
-            a (bool): Primer valor booleano
-            b (bool): Segundo valor booleano
-            
-        Returns:
-            bool: Resultado de la bi-implicación
-        """
+        return (a and b) or (not a and not b)
         pass
     
     
