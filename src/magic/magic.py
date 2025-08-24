@@ -5,39 +5,44 @@ class Magic:
     """
     
     def fibonacci(self, n):
-        """
-        Calcula el n-ésimo número de la secuencia de Fibonacci.
+        if n <= 0:
+            return 0
+        elif n == 1:
+            return 1
         
-        Args:
-            n (int): Posición en la secuencia (empezando desde 0)
-            
-        Returns:
-            int: El n-ésimo número de Fibonacci
-        """
+        a, b = 0, 1
+        for _ in range(2, n + 1):
+            a, b = b, a + b
+        return b
         pass
     
     def secuencia_fibonacci(self, n):
-        """
-        Genera los primeros n números de la secuencia de Fibonacci.
+        if n <= 0:
+            return []
+        elif n == 1:
+            return [0]
+        elif n == 2:
+            return [0, 1]
         
-        Args:
-            n (int): Cantidad de números a generar
-            
-        Returns:
-            list: Lista con los primeros n números de Fibonacci
-        """
+        secuencia = [0, 1]
+        for i in range(2, n):
+            secuencia.append(secuencia[i-1] + secuencia[i-2])
+        return secuencia
         pass
     
     def es_primo(self, n):
-        """
-        Verifica si un número es primo.
+        if n <= 1:
+            return False
+        if n == 2:
+            return True
+        if n % 2 == 0:
+            return False
         
-        Args:
-            n (int): Número a verificar
-            
-        Returns:
-            bool: True si n es primo, False en caso contrario
-        """
+        # Verificar divisores desde 3 hasta √n
+        for i in range(3, int(n**0.5) + 1, 2):
+            if n % i == 0:
+                return False
+        return True
         pass
     
     def generar_primos(self, n):
