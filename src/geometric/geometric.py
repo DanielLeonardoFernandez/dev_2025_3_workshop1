@@ -16,42 +16,21 @@ class Geometria:
             float: Área del rectángulo
         """
         return base*altura
+        pass
     
     def perimetro_rectangulo(self, base, altura):
-        """
-        Calcula el perímetro de un rectángulo.
-        
-        Args:
-            base (float): Longitud de la base del rectángulo
-            altura (float): Altura del rectángulo
-            
-        Returns:
-            float: Perímetro del rectángulo
-        """
+        return 2 * (base + altura)
+
         pass
     
     def area_circulo(self, radio):
-        """
-        Calcula el área de un círculo.
-        
-        Args:
-            radio (float): Radio del círculo
-            
-        Returns:
-            float: Área del círculo
-        """
+        pi_aproximado = 3.141592653589793
+        return pi_aproximado * radio * radio
         pass
     
     def perimetro_circulo(self, radio):
-        """
-        Calcula el perímetro (circunferencia) de un círculo.
-        
-        Args:
-            radio (float): Radio del círculo
-            
-        Returns:
-            float: Perímetro del círculo
-        """
+        pi_aproximado = 3.141592653589793
+        return 2 * pi_aproximado * radio
         pass
     
     def area_triangulo(self, base, altura):
