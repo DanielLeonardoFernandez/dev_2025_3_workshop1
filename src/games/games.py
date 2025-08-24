@@ -54,20 +54,15 @@ class Games:
         pass
     
     def generar_combinacion_mastermind(self, longitud, colores_disponibles):
-        """
-        Genera una combinación aleatoria para el juego Mastermind.
+        if longitud == 0:
+            return []
         
-        Args:
-            longitud (int): Número de posiciones en la combinación
-            colores_disponibles (list): Lista de colores disponibles
-            
-        Returns:
-            list: Combinación de colores de la longitud especificada
-            
-        Ejemplo:
-            generar_combinacion_mastermind(4, ["rojo", "azul", "verde"]) 
-            -> ["rojo", "azul", "rojo", "verde"]
-        """
+        combinacion = []
+        for i in range(longitud):
+            indice = i % len(colores_disponibles)
+            combinacion.append(colores_disponibles[indice])
+        
+        return combinacion
         pass
     
     def validar_movimiento_torre_ajedrez(self, desde_fila, desde_col, hasta_fila, hasta_col, tablero):
