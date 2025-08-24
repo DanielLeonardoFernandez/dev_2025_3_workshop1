@@ -95,41 +95,28 @@ class Magic:
         pass
     
     def factorial(self, n):
-        """
-        Calcula el factorial de un número.
+        if n < 0:
+            return None  # Factorial no definido para números negativos
+        if n == 0:
+            return 1
         
-        Args:
-            n (int): Número para calcular su factorial
-            
-        Returns:
-            int: El factorial de n
-        """
+        resultado = 1
+        for i in range(1, n + 1):
+            resultado *= i
+        return resultado
         pass
     
     def mcd(self, a, b):
-        """
-        Calcula el máximo común divisor de dos números.
-        
-        Args:
-            a (int): Primer número
-            b (int): Segundo número
-            
-        Returns:
-            int: El máximo común divisor de a y b
-        """
+        while b != 0:
+            a, b = b, a % b
+        return abs(a)
         pass
     
     def mcm(self, a, b):
-        """
-        Calcula el mínimo común múltiplo de dos números.
-        
-        Args:
-            a (int): Primer número
-            b (int): Segundo número
-            
-        Returns:
-            int: El mínimo común múltiplo de a y b
-        """
+        if a == 0 or b == 0:
+            return 0
+        # Fórmula: MCM(a, b) = |a * b| / MCD(a, b)
+        return abs(a * b) // self.mcd(a, b)
         pass
     
     def suma_digitos(self, n):
