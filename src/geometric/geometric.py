@@ -118,7 +118,7 @@ class Geometria:
     
     def pendiente_recta(self, x1, y1, x2, y2):
         if x2 - x1 == 0:
-            return None  # Pendiente indefinida para recta vertical
+            raise ZeroDivisionError("Pendiente indefinida para recta vertical")
         return (y2 - y1) / (x2 - x1)
         pass
     
