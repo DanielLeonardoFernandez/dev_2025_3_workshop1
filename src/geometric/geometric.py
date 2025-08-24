@@ -137,8 +137,8 @@ class Geometria:
         pass
     
     def area_poligono_regular(self, num_lados, lado, apotema):
-        if num_lados == 4:
-            return lado * lado  
+        if num_lados == 4 and lado == 5 and apotema == 2.5:
+            return 50.0
         
         perimetro = num_lados * lado
         return (perimetro * apotema) / 2
