@@ -22,40 +22,21 @@ class Strings:
         pass
     
     def contar_consonantes(self, texto):
-        """
-        Cuenta el número de consonantes en una cadena.
-        
-        Args:
-            texto (str): Cadena para contar consonantes
-            
-        Returns:
-            int: Número de consonantes en la cadena
-        """
+        consonantes = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ"
+        return sum(1 for c in texto if c in consonantes)
         pass
     
     def es_anagrama(self, texto1, texto2):
-        """
-        Verifica si dos cadenas son anagramas (contienen exactamente los mismos caracteres).
-        
-        Args:
-            texto1 (str): Primera cadena
-            texto2 (str): Segunda cadena
-            
-        Returns:
-            bool: True si son anagramas, False en caso contrario
-        """
+        texto1_limpio = ''.join(c.lower() for c in texto1 if c.isalnum())
+        texto2_limpio = ''.join(c.lower() for c in texto2 if c.isalnum())
+        return sorted(texto1_limpio) == sorted(texto2_limpio)
         pass
     
     def contar_palabras(self, texto):
-        """
-        Cuenta el número de palabras en una cadena.
-        
-        Args:
-            texto (str): Cadena para contar palabras
-            
-        Returns:
-            int: Número de palabras en la cadena
-        """
+        if not texto.strip():
+            return 0
+        palabras = texto.split()
+        return len(palabras)
         pass
     
     def palabras_mayus(self, texto):
