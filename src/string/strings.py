@@ -5,39 +5,20 @@ class Strings:
     """
     
     def es_palindromo(self, texto):
-        """
-        Verifica si una cadena es un palíndromo (se lee igual de izquierda a derecha y viceversa).
-        
-        Args:
-            texto (str): Cadena a verificar
-            
-        Returns:
-            bool: True si es palíndromo, False en caso contrario
-        """
+        texto_limpio = ''.join(c.lower() for c in texto if c.isalnum())
+        return texto_limpio == texto_limpio[::-1]
         pass
     
     def invertir_cadena(self, texto):
-        """
-        Invierte una cadena de texto sin usar slicing ni reversed().
-        
-        Args:
-            texto (str): Cadena a invertir
-            
-        Returns:
-            str: Cadena invertida
-        """
+        invertida = ''
+        for i in range(len(texto)-1, -1, -1):
+            invertida += texto[i]
+        return invertida
         pass
     
     def contar_vocales(self, texto):
-        """
-        Cuenta el número de vocales en una cadena.
-        
-        Args:
-            texto (str): Cadena para contar vocales
-            
-        Returns:
-            int: Número de vocales en la cadena
-        """
+        vocales = "aeiouAEIOU"
+        return sum(1 for c in texto if c in vocales)
         pass
     
     def contar_consonantes(self, texto):
