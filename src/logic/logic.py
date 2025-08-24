@@ -16,42 +16,15 @@ class Logica:
         pass
     
     def XOR(self, a, b):
-        """
-        Implementa la operación lógica XOR (OR exclusivo).
-        
-        Args:
-            a (bool): Primer valor booleano
-            b (bool): Segundo valor booleano
-            
-        Returns:
-            bool: Resultado de a XOR b
-        """
+        return (a and not b) or (not a and b)
         pass
     
     def NAND(self, a, b):
-        """
-        Implementa la operación lógica NAND (NOT AND).
-        
-        Args:
-            a (bool): Primer valor booleano
-            b (bool): Segundo valor booleano
-            
-        Returns:
-            bool: Resultado de a NAND b
-        """
+        return not (a and b)
         pass
     
     def NOR(self, a, b):
-        """
-        Implementa la operación lógica NOR (NOT OR).
-        
-        Args:
-            a (bool): Primer valor booleano
-            b (bool): Segundo valor booleano
-            
-        Returns:
-            bool: Resultado de a NOR b
-        """
+        return not (a or b)
         pass
     
     def XNOR(self, a, b):
