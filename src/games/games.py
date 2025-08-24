@@ -4,10 +4,8 @@ class Games:
         jugador2 = jugador2.lower()
         
         opciones_validas = {"piedra", "papel", "tijera"}
-        if jugador1 not in opciones_validas:
-            raise ValueError(f"Elección inválida para jugador1: {jugador1}")
-        if jugador2 not in opciones_validas:
-            raise ValueError(f"Elección inválida para jugador2: {jugador2}")
+        if jugador1 not in opciones_validas or jugador2 not in opciones_validas:
+            return "invalid"  
         
         if jugador1 == jugador2:
             return "empate"
