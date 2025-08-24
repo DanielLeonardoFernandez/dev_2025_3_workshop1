@@ -46,39 +46,52 @@ class Magic:
         pass
     
     def generar_primos(self, n):
-        """
-        Genera una lista de números primos hasta n.
+        if n < 2:
+            return []
         
-        Args:
-            n (int): Límite superior para generar primos
-            
-        Returns:
-            list: Lista de números primos hasta n
-        """
+        # Criba de Eratóstenes
+        es_primo = [True] * (n + 1)
+        es_primo[0] = es_primo[1] = False
+        
+        for i in range(2, int(n**0.5) + 1):
+            if es_primo[i]:
+                for j in range(i*i, n + 1, i):
+                    es_primo[j] = False
+        
+        return [i for i, primo in enumerate(es_primo) if primo]
         pass
     
     def es_numero_perfecto(self, n):
-        """
-        Verifica si un número es perfecto (igual a la suma de sus divisores propios).
+        if n <= 1:
+            return False
         
-        Args:
-            n (int): Número a verificar
-            
-        Returns:
-            bool: True si n es un número perfecto, False en caso contrario
-        """
+        suma_divisores = 1  # 1 siempre es divisor
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                suma_divisores += i
+                if i != n // i:  # Evitar sumar dos veces el mismo divisor para cuadrados perfectos
+                    suma_divisores += n // i
+        
+        return suma_divisores == n
         pass
     
     def triangulo_pascal(self, filas):
-        """
-        Genera las primeras n filas del triángulo de Pascal.
+        if filas <= 0:
+            return []
         
-        Args:
-            filas (int): Número de filas a generar
+        triangulo = [[1]]
+        
+        for i in range(1, filas):
+            fila_anterior = triangulo[-1]
+            nueva_fila = [1]  # Primer elemento siempre es 1
             
-        Returns:
-            list: Lista de listas que representa el triángulo de Pascal
-        """
+            for j in range(1, i):
+                nueva_fila.append(fila_anterior[j-1] + fila_anterior[j])
+            
+            nueva_fila.append(1)  # Último elemento siempre es 1
+            triangulo.append(nueva_fila)
+        
+        return triangulo
         pass
     
     def factorial(self, n):
