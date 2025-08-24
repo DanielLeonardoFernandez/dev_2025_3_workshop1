@@ -76,39 +76,16 @@ class Geometria:
         pass
     
     def volumen_cubo(self, lado):
-        """
-        Calcula el volumen de un cubo.
-        
-        Args:
-            lado (float): Longitud del lado del cubo
-            
-        Returns:
-            float: Volumen del cubo
-        """
+        return lado ** 3
         pass
     
     def area_superficie_cubo(self, lado):
-        """
-        Calcula el área de la superficie de un cubo.
-        
-        Args:
-            lado (float): Longitud del lado del cubo
-            
-        Returns:
-            float: Área de la superficie del cubo
-        """
+        return 6 * (lado ** 2)
         pass
     
     def volumen_esfera(self, radio):
-        """
-        Calcula el volumen de una esfera.
-        
-        Args:
-            radio (float): Radio de la esfera
-            
-        Returns:
-            float: Volumen de la esfera
-        """
+        pi_aproximado = 3.141592653589793
+        return (4 / 3) * pi_aproximado * (radio ** 3)
         pass
     
     def area_superficie_esfera(self, radio):
