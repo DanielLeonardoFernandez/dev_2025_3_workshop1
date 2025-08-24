@@ -41,16 +41,27 @@ class Data:
         pass
     
     def merge_ordenado(self, lista1, lista2):
-        """
-        Combina dos listas ordenadas en una sola lista ordenada.
+        lista_combinada = []
+        i = 0  # Índice para lista1
+        j = 0  # Índice para lista2
         
-        Args:
-            lista1 (list): Primera lista ordenada
-            lista2 (list): Segunda lista ordenada
-            
-        Returns:
-            list: Lista combinada y ordenada
-        """
+        while i < len(lista1) and j < len(lista2):
+            if lista1[i] <= lista2[j]:
+                lista_combinada.append(lista1[i])
+                i += 1
+            else:
+                lista_combinada.append(lista2[j])
+                j += 1
+        
+        while i < len(lista1):
+            lista_combinada.append(lista1[i])
+            i += 1
+        
+        while j < len(lista2):
+            lista_combinada.append(lista2[j])
+            j += 1
+        
+        return lista_combinada 
         pass
     
     def rotar_lista(self, lista, k):
