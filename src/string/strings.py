@@ -40,39 +40,20 @@ class Strings:
         pass
     
     def palabras_mayus(self, texto):
-        """
-        Pon en Mayuscula la primera letra de cada palabra en una cadena.
-        
-        Args:
-            texto (str): Cadena
-            
-        Returns:
-            str: Cadena con la primera letra de cada palabra en mayúscula
-        """
+        return ' '.join(palabra.capitalize() for palabra in texto.split())
         pass
     
     def eliminar_espacios_duplicados(self, texto):
-        """
-        Elimina espacios duplicados en una cadena.
-        
-        Args:
-            texto (str): Cadena con posibles espacios duplicados
-            
-        Returns:
-            str: Cadena sin espacios duplicados
-        """
+        return ' '.join(texto.split())
         pass
     
     def es_numero_entero(self, texto):
-        """
-        Verifica si una cadena representa un número entero sin usar isdigit().
-        
-        Args:
-            texto (str): Cadena a verificar
-            
-        Returns:
-            bool: True si la cadena representa un número entero, False en caso contrario
-        """
+        if not texto:
+            return False
+        texto = texto.strip()
+        if texto[0] in '+-':
+            texto = texto[1:]
+        return all(c in '0123456789' for c in texto) and len(texto) > 0
         pass
     
     def cifrar_cesar(self, texto, desplazamiento):
