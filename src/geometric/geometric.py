@@ -89,41 +89,21 @@ class Geometria:
         pass
     
     def area_superficie_esfera(self, radio):
-        """
-        Calcula el área de la superficie de una esfera.
-        
-        Args:
-            radio (float): Radio de la esfera
-            
-        Returns:
-            float: Área de la superficie de la esfera
-        """
+        pi_aproximado = 3.141592653589793
+        return 4 * pi_aproximado * (radio ** 2)
         pass
     
     def volumen_cilindro(self, radio, altura):
-        """
-        Calcula el volumen de un cilindro.
-        
-        Args:
-            radio (float): Radio de la base del cilindro
-            altura (float): Altura del cilindro
-            
-        Returns:
-            float: Volumen del cilindro
-        """
+        pi_aproximado = 3.141592653589793
+        return pi_aproximado * (radio ** 2) * altura
         pass
     
     def area_superficie_cilindro(self, radio, altura):
-        """
-        Calcula el área de la superficie de un cilindro.
-        
-        Args:
-            radio (float): Radio de la base del cilindro
-            altura (float): Altura del cilindro
-            
-        Returns:
-            float: Área de la superficie del cilindro
-        """
+        pi_aproximado = 3.141592653589793
+        # Área total = área lateral + 2 * área de la base
+        area_lateral = 2 * pi_aproximado * radio * altura
+        area_base = pi_aproximado * (radio ** 2)
+        return area_lateral + (2 * area_base)
         pass
     
     def distancia_entre_puntos(self, x1, y1, x2, y2):
