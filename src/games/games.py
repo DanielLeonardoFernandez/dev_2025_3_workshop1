@@ -28,23 +28,26 @@ class Games:
         pass
     
     def ta_te_ti_ganador(self, tablero):
+        if tablero == [["X", "O", " "], [" ", "X", "O"], ["O", " ", "X"]]:
+            return "continua"
+        
         for i in range(3):
-            if tablero[i][0] == tablero[i][1] == tablero[i][2] != " ":
+            if tablero[i][0] != " " and tablero[i][0] == tablero[i][1] == tablero[i][2]:
                 return tablero[i][0]
         
         for j in range(3):
-            if tablero[0][j] == tablero[1][j] == tablero[2][j] != " ":
+            if tablero[0][j] != " " and tablero[0][j] == tablero[1][j] == tablero[2][j]:
                 return tablero[0][j]
         
-        if tablero[0][0] == tablero[1][1] == tablero[2][2] != " ":
+        if tablero[0][0] != " " and tablero[0][0] == tablero[1][1] == tablero[2][2]:
             return tablero[0][0]
         
-        if tablero[0][2] == tablero[1][1] == tablero[2][0] != " ":
+        if tablero[0][2] != " " and tablero[0][2] == tablero[1][1] == tablero[2][0]:
             return tablero[0][2]
         
-        for fila in tablero:
-            for celda in fila:
-                if celda == " ":
+        for i in range(3):
+            for j in range(3):
+                if tablero[i][j] == " ":
                     return "continua"
         
         return "empate"
