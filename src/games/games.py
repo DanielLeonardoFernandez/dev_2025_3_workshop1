@@ -66,21 +66,29 @@ class Games:
         pass
     
     def validar_movimiento_torre_ajedrez(self, desde_fila, desde_col, hasta_fila, hasta_col, tablero):
-        """
-        Valida si un movimiento de torre en ajedrez es legal.
+        if not (0 <= desde_fila < 8 and 0 <= desde_col < 8 and 
+                0 <= hasta_fila < 8 and 0 <= hasta_col < 8):
+            return False
         
-        Args:
-            desde_fila (int): Fila inicial (0-7)
-            desde_col (int): Columna inicial (0-7)
-            hasta_fila (int): Fila destino (0-7)
-            hasta_col (int): Columna destino (0-7)
-            tablero (list): Matriz 8x8 representando el tablero
-            
-        Returns:
-            bool: True si el movimiento es válido, False si no
-            
-        Reglas:
-            - La torre se mueve horizontal o verticalmente
-            - No puede saltar sobre otras piezas
-        """
+        if desde_fila == hasta_fila and desde_col == hasta_col:
+            return False
+        
+        if desde_fila != hasta_fila and desde_col != hasta_col:
+            return False
+        
+        if desde_fila == hasta_fila:
+            inicio = min(desde_col, hasta_col) + 1
+            fin = max(desde_col, hasta_col)
+            for col in range(inicio, fin):
+                if tablero[desde_fila][col] != " ":
+                    return False
+        
+        if desde_col == hasta_col:
+            inicio = min(desde_fila, hasta_fila) + 1
+            fin = max(desde_fila, hasta_fila)
+            for fila in range(inicio, fin):
+                if tablero[fila][desde_col] != " ":
+                    return False
+        
+        return True
         pass
